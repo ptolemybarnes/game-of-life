@@ -27,4 +27,26 @@ describe('Game of Life', () => {
 `
     );
   });
+
+  it('a cell with exactly three neighbours lives', () => {
+    const board = 
+`
+ ________
+|        |
+|  x     |
+| xx     |
+|        |
+ --------
+`
+    expect(gameOfLife(board)).toEqual(
+`
+ ________
+|        |
+| xx     |
+| xx     |
+|        |
+ --------
+`
+    );
+  });
 });

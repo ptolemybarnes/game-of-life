@@ -1,4 +1,4 @@
-import { compose, join, map } from 'lodash/fp'
+import { compose, join, map, filter, isEqual } from 'lodash/fp'
 
 const parseBoard = board => board.match(/\|(.+|\s+)\|/g)
   .map(line => line.replace(/\|/g, ''))
@@ -18,11 +18,27 @@ const createBoard = compose(
 
 const cellIsDead = (cell) => true;
 
+const getSafe = board => coords => (board[coords[1]] || [])[coords[0]] || ' '
+
+const getNeightboursOfCell = (board, x, y) => (
+  [
+    [x + 1, y + 1],
+    [x + 1, y],
+    [x + 1, y - 1],
+    [x, y - 1],
+    [x - 1, y - 1],
+    [x - 1, y],
+    [x - 1, y + 1],
+    [x, y + 1]
+  ].map(getSafe(board))
+)
+
 const gameOfLife = (board) => board.map(
-  line => line.map(cell => {
-    if (cell === 'x') {
-      if (cellIsDead(cell)) return ' ' 
-    }
+  (line, yIndex) => line.map((cell, xIndex) => {
+    const neighbours = getNeightboursOfCell(board, xIndex, yIndex);
+    const numberOfNeighbours = filter(isEqual('x'), neighbours).length;
+    if (numberOfNeighbours === 3) return 'x';
+    if (cell === 'x' && numberOfNeighbours === 2) return 'x';
     return ' ';
   })
 );
