@@ -5,28 +5,26 @@ import gameOfLife from '../src/gameOfLife';
 // Any live cell with more than three live neighbours dies, as if by overpopulation.
 // Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
 
-const parseBoard = boardLiteral => 
-
-describ('Game of Life', () => {
+describe('Game of Life', () => {
   it('lone cell dies', () => {
     const board = 
-      `
-        ________
-       |        |
-       |        |
-       | x      |
-       |        |
-        --------
-      `
-    expect(gameOfLife(parseBoard(board))).toEqual(
-      `
-        ________
-       |        |
-       |        |
-       |        |
-       |        |
-        --------
-      `
+`
+ ________
+|        |
+|        |
+| x      |
+|        |
+ --------
+`
+    expect(gameOfLife(board)).toEqual(
+`
+ ________
+|        |
+|        |
+|        |
+|        |
+ --------
+`
     );
   });
 });

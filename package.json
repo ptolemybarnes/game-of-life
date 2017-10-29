@@ -53,6 +53,7 @@
     "zuul": "^3.8.0"
   },
   "dependencies": {
-    "babel-jest": "^21.2.0"
+    "babel-jest": "^21.2.0",
+    "lodash": "^4.17.4"
   }
 }
