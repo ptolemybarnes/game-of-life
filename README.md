@@ -33,22 +33,31 @@ git init
 ## Scripts
 
  - **npm run readme** : `node ./node_modules/.bin/node-readme`
- - **npm run test** : `./node_modules/.bin/babel-tape-runner ./spec/**/*.spec.js | ./node_modules/.bin/tap-spec`
+ - **npm run test** : `jest`
  - **npm run zuul** : `./node_modules/.bin/zuul --local --open -- spec/**/*.spec.js`
  - **npm run build** : `npm run test && npm run readme && ./node_modules/.bin/babel -d ./dist ./src`
  - **npm run publish** : `git push && git push --tags && npm publish`
+ - **npm run lint** : `eslint .`
 
 ## Dependencies
 
 Package | Version | Dev
 --- |:---:|:---:
+[babel-jest](https://www.npmjs.com/package/babel-jest) | ^21.2.0 | ✖
+[lodash](https://www.npmjs.com/package/lodash) | ^4.17.4 | ✖
 [babel-cli](https://www.npmjs.com/package/babel-cli) | ^6.3.17 | ✔
 [babel-eslint](https://www.npmjs.com/package/babel-eslint) | * | ✔
 [babel-preset-es2015](https://www.npmjs.com/package/babel-preset-es2015) | * | ✔
 [babel-tape-runner](https://www.npmjs.com/package/babel-tape-runner) | * | ✔
 [babelify](https://www.npmjs.com/package/babelify) | 7.2.0 | ✔
-[eslint](https://www.npmjs.com/package/eslint) | * | ✔
+[eslint](https://www.npmjs.com/package/eslint) | ^4.9.0 | ✔
 [eslint-config-airbnb](https://www.npmjs.com/package/eslint-config-airbnb) | * | ✔
+[eslint-config-airbnb-base](https://www.npmjs.com/package/eslint-config-airbnb-base) | ^12.1.0 | ✔
+[eslint-plugin-import](https://www.npmjs.com/package/eslint-plugin-import) | ^2.8.0 | ✔
+[eslint-plugin-jest](https://www.npmjs.com/package/eslint-plugin-jest) | ^21.2.0 | ✔
+[eslint-plugin-jsx-a11y](https://www.npmjs.com/package/eslint-plugin-jsx-a11y) | ^6.0.2 | ✔
+[eslint-plugin-react](https://www.npmjs.com/package/eslint-plugin-react) | ^7.4.0 | ✔
+[jest](https://www.npmjs.com/package/jest) | ^21.2.1 | ✔
 [node-readme](https://www.npmjs.com/package/node-readme) | ^0.1.8 | ✔
 [tap-spec](https://www.npmjs.com/package/tap-spec) | ^4.0.2 | ✔
 [tape](https://www.npmjs.com/package/tape) | ^4.0.0 | ✔
